@@ -11,31 +11,31 @@ module Cars
       expect(subject.brand).to eq('unknown')
     end
 
-    it "has maximum velocity of zero" do
+    it "has maximum current_speed of zero" do
       expect(subject.max_velocity).to eq(0)
     end
 
-    it "accelerate increases velocity by one" do
-      expect(subject.velocity).to eq(0)
+    it "accelerate increases current_speed by one" do
+      expect(subject.current_speed).to eq(0)
       expect(reporter).to receive(:print).with('.')
       subject.accelerate
-      expect(subject.velocity).to eq(1)
+      expect(subject.current_speed).to eq(1)
     end
 
-    it "stop sets velocity to zero" do
-      subject.velocity = 27
+    it "stop sets current_speed to zero" do
+      subject.current_speed = 27
       subject.stop
-      expect(subject.velocity).to eq(0)
+      expect(subject.current_speed).to eq(0)
     end
 
-    it "drive calls accelerate until velocity reaches maximum then calls stop" do
+    it "drive calls accelerate until current_speed reaches maximum then calls stop" do
       subject.max_velocity = 2
       expect(subject).to receive(:accelerate).twice.and_call_original
       expect(subject).to receive(:stop).once.and_call_original
       expect(reporter).to receive(:print).twice
       expect(reporter).to receive(:puts).once
       subject.drive
-      expect(subject.velocity).to eq(0)
+      expect(subject.current_speed).to eq(0)
     end
 
 

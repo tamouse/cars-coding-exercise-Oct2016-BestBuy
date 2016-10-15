@@ -1,33 +1,33 @@
 module Cars
 
   class Base
-    attr_accessor :velocity, :max_velocity, :brand, :reporter
+    attr_accessor :current_speed, :max_velocity, :brand, :reporter
 
     def initialize(
         reporter: $stdout
         )
 
-      self.velocity = 0
-      self.brand = "unknown"
-      self.max_velocity = 0
-      self.reporter = reporter
+      self.current_speed = 0
+      self.brand         = "unknown"
+      self.max_velocity  = 0
+      self.reporter      = reporter
     end
 
     def drive
-      while velocity < max_velocity
+      while current_speed < max_velocity
         accelerate
       end
-      reporter.puts "Car #{brand} #{model} reached maximum velocity of #{velocity}"
+      reporter.puts "Car #{brand} #{model} reached maximum current_speed of #{current_speed}"
       stop
     end
 
     def accelerate
-      self.velocity += 1
+      self.current_speed += 1
       reporter.print "."
     end
 
     def stop
-      self.velocity = 0
+      self.current_speed = 0
     end
 
     def model
