@@ -7,8 +7,8 @@ module Cars
 
     def initialize(*args)
       super
-      self.brand = "Chevy"
-      self.max_velocity = 200
+      self.brand     = "Chevy"
+      self.max_speed = 200
     end
 
   end
